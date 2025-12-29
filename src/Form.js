@@ -2,12 +2,12 @@ import { useState } from "react";
 
 export function Form({ onAddMonsters }) {
   const [name, setName] = useState("");
-  const [initiative, setInitiative] = useState("");
-  const [hp, setHp] = useState("");
+  const [initiative, setInitiative] = useState(0);
+  const [hp, setHp] = useState(1);
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!name || !initiative || !hp) return;
+    if (!name) return;
 
     const newMonster = {
       name,
@@ -18,8 +18,8 @@ export function Form({ onAddMonsters }) {
 
     onAddMonsters(newMonster);
     setName("");
-    setInitiative("");
-    setHp("");
+    setInitiative(0);
+    setHp(1);
   }
 
   return (
